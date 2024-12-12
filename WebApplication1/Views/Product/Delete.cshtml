@@ -1,0 +1,11 @@
+﻿@model WebApplication1.Models.Product
+
+<h2>Delete Product</h2>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <p>Are you sure you want to delete @Model.Name?</p>
+    <p>Buy Price: @Model.BuyPrice</p> <!-- Hiển thị giá mua -->
+    <p>Sell Price: @Model.SellPrice</p> <!-- Hiển thị giá bán -->
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

@@ -1,0 +1,14 @@
+﻿@model WebApplication1.Models.Product
+
+<h2>@Model.Name</h2>
+
+<div>
+    <h3>Buy Price: @Model.BuyPrice</h3> <!-- Hiển thị giá mua -->
+    <h3>Sell Price: @Model.SellPrice</h3> <!-- Hiển thị giá bán -->
+    <p>@Model.Description</p>
+    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+    {
+        <img src="@Model.ImageUrl" alt="Product Image" style="max-width:200px;" />
+    }
+</div>
+

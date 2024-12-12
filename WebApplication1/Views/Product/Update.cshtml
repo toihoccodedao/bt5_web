@@ -1,0 +1,51 @@
+﻿@model WebApplication1.Models.Product
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<h2>Edit Product</h2>
+
+<form asp-action="Update" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BuyPrice">Buy Price</label> <!-- Thêm trường BuyPrice -->
+        <input asp-for="BuyPrice" class="form-control" />
+        <span asp-validation-for="BuyPrice" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SellPrice">Sell Price</label> <!-- Thêm trường SellPrice -->
+        <input asp-for="SellPrice" class="form-control" />
+        <span asp-validation-for="SellPrice" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageUrl">Product Image</label>
+        <input type="file" asp-for="ImageUrl" class="form-control" />
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+                <img src="@Model.ImageUrl" alt="Product Image" style="max-width:200px;" />
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
